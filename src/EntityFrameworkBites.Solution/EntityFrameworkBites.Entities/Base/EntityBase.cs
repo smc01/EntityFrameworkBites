@@ -1,5 +1,4 @@
-﻿
-namespace EntityFrameworkBites.Entities.Base
+﻿namespace EntityFrameworkBites.Entities.Base
 {
     public abstract class EntityBase<T>
     {
