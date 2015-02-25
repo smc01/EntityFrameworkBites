@@ -3,17 +3,18 @@ using System;
 
 namespace EntityFrameworkBites.Migrations.Structure
 {
-    [Migration(201502231855)]
     public class Product:Migration
     {
         public override void Down()
         {
-            throw new NotImplementedException();
+            Delete.Table("Product");
         }
 
         public override void Up()
         {
-            throw new NotImplementedException();
+            Create.Table("Product")
+               .WithColumn("Id").AsInt32().PrimaryKey("PK_Product_Id")
+               .WithColumn("Name").AsString(100).WithColumnDescription("Product Name");
         }
     }
 }

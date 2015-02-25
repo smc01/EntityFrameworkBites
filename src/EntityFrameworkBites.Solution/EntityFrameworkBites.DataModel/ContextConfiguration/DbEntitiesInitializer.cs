@@ -9,4 +9,6 @@ namespace EntityFrameworkBites.DataModel.ContextConfiguration
             base.Seed(context);
         }
     }
+
+    
 }
