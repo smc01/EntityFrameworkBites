@@ -67,6 +67,10 @@
       <Project>{0f97a21c-4bcb-4401-9b52-466c7e85c53a}</Project>
       <Name>EntityFrameworkBites.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EntityFrameworkBites.Services\EntityFrameworkBites.Services.csproj">
+      <Project>{789b8a93-6860-4d61-b344-1a1207995037}</Project>
+      <Name>EntityFrameworkBites.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

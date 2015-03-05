@@ -3,6 +3,7 @@ using System;
 
 namespace EntityFrameworkBites.Migrations.Structure
 {
+    [Migration(201502231850)]
     public class Product:Migration
     {
         public override void Down()

@@ -18,6 +18,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkBites.Migrat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkBites.ConsoleApplication", "EntityFrameworkBites.ConsoleApplication\EntityFrameworkBites.ConsoleApplication.csproj", "{959C31B9-F667-44F0-936C-39132D68AB24}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proj", "proj", "{B56C6A32-E637-4547-AFCD-A382985AF708}"
+	ProjectSection(SolutionItems) = preProject
+		EntityFrameworkBites.Migrations\EntityFrameworkBites_MigrateTasks.proj = EntityFrameworkBites.Migrations\EntityFrameworkBites_MigrateTasks.proj
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkBites.Services", "EntityFrameworkBites.Services\EntityFrameworkBites.Services.csproj", "{789B8A93-6860-4D61-B344-1A1207995037}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +47,10 @@ Global
 		{959C31B9-F667-44F0-936C-39132D68AB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{959C31B9-F667-44F0-936C-39132D68AB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{959C31B9-F667-44F0-936C-39132D68AB24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{789B8A93-6860-4D61-B344-1A1207995037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{789B8A93-6860-4D61-B344-1A1207995037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{789B8A93-6860-4D61-B344-1A1207995037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{789B8A93-6860-4D61-B344-1A1207995037}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,8 @@
 ﻿using FluentMigrator;
 
-namespace EntityFrameworkBites.Migrations
+namespace EntityFrameworkBites.Migrations.Structure
 {
-    [Migration(201502231850)]
+    [Migration(201502231851)]
     public class ProductCategoryMigration: Migration
     {
         public override void Down()
