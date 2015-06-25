@@ -19,4 +19,23 @@ namespace EntityFrameworkBites.Migrations.Structure
                .WithColumn("Name").AsString(100).WithColumnDescription("Product Name");
         }
     }
+    [Migration(201503071000)]
+    public class ProducAddCategory : Migration
+    {
+
+        public override void Down()
+        {
+            Delete.ForeignKey("").OnTable("Product");
+            Delete.Column("ProductCategoryId").FromTable("Product");
+           
+        }
+
+        public override void Up()
+        {
+            Alter.Table("Product")
+                .AddColumn("ProductCategoryId")
+                .AsInt16()
+                .ForeignKey("FK_Product_ProductCategory", "ProductCategory");
+        }
+    }
 }
