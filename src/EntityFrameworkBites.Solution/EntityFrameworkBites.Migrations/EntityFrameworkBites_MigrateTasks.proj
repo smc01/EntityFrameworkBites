@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ConnectionString>Server=.\SQL2012;Database=EfBitesDb;User Id=sa;Password=1234%asd</ConnectionString>
   </PropertyGroup>
-  <UsingTask TaskName="FluentMigrator.MSBuild.Migrate" AssemblyFile="..\packages\FluentMigrator.1.4.0.0\tools\FluentMigrator.MSBuild.dll" />
+  <UsingTask TaskName="FluentMigrator.MSBuild.Migrate" AssemblyFile="..\packages\FluentMigrator.1.5.1.0\tools\FluentMigrator.MSBuild.dll" />
 
   <!--Build solution before deploy-->
   <Target Name="BuildProj">

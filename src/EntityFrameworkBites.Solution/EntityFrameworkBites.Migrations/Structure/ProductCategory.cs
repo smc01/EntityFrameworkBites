@@ -13,7 +13,7 @@ namespace EntityFrameworkBites.Migrations.Structure
         public override void Up()
         {
             Create.Table("ProductCategory")
-                .WithColumn("Id").AsInt32().PrimaryKey("PK_ProductCategory_Id")
+                .WithColumn("Id").AsInt32().PrimaryKey("PK_ProductCategory_Id").Identity()
                 .WithColumn("Name").AsString(100).WithColumnDescription("Product Category");
         }
     }

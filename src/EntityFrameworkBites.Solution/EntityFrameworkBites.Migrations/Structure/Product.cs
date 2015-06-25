@@ -1,4 +1,5 @@
 ﻿using FluentMigrator;
+
 using System;
 
 namespace EntityFrameworkBites.Migrations.Structure
@@ -14,7 +15,7 @@ namespace EntityFrameworkBites.Migrations.Structure
         public override void Up()
         {
             Create.Table("Product")
-               .WithColumn("Id").AsInt32().PrimaryKey("PK_Product_Id")
+               .WithColumn("Id").AsInt32().Identity().PrimaryKey("PK_Product_Id")
                .WithColumn("Name").AsString(100).WithColumnDescription("Product Name");
         }
     }

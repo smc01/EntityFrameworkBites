@@ -17,14 +17,11 @@ namespace EntityFrameworkBites.DataModel
             
         }
         public IDbSet<Entities.Product> ProductSet { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategorieSet { get; set; } 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Entity<Product>().HasKey(p => p.Id);
-            modelBuilder.Entity<Product>()
-                .Property(p => p.Id)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             base.OnModelCreating(modelBuilder);
         }
     }
