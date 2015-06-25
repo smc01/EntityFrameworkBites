@@ -1,4 +1,4 @@
-/* Using Database SqlServer2012 and Connection String Server=.\SQL2012;Database=EfBitesDb;User Id=sa;Password=1234%asd */
+/* Using Database SqlServer2012 and Connection String Server=.\SQL2012;Database=EfBitesDbTest;User Id=sa;Password=1234%asd */
 /* VersionMigration migrating ================================================ */
 
 /* Beginning Transaction */
@@ -44,7 +44,7 @@ GO
 EXEC sys.sp_addextendedproperty @name = N'MS_Description', @value = N'Product Name', @level0type = N'SCHEMA', @level0name = 'dbo', @level1type = N'Table', @level1name = 'Product', @level2type = N'Column',  @level2name = 'Name'
 
 
-INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (201502231850, '2015-06-25T16:45:45', 'Product')
+INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (201502231850, '2015-06-25T17:23:54', 'Product')
 /* Committing Transaction */
 /* 201502231850: Product migrated */
 
@@ -57,7 +57,7 @@ GO
 EXEC sys.sp_addextendedproperty @name = N'MS_Description', @value = N'Product Category', @level0type = N'SCHEMA', @level0name = 'dbo', @level1type = N'Table', @level1name = 'ProductCategory', @level2type = N'Column',  @level2name = 'Name'
 
 
-INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (201502231851, '2015-06-25T16:45:45', 'ProductCategoryMigration')
+INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (201502231851, '2015-06-25T17:23:54', 'ProductCategoryMigration')
 /* Committing Transaction */
 /* 201502231851: ProductCategoryMigration migrated */
 
@@ -66,8 +66,8 @@ INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (
 /* Beginning Transaction */
 INSERT INTO [dbo].[ProductCategory] ([Name]) VALUES ('Categorie1')
 INSERT INTO [dbo].[ProductCategory] ([Name]) VALUES ('Categorie2')
-/* -> 2 Insert operations completed in 00:00:00.0010001 taking an average of 00:00:00.0005000 */
-INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (201506251851, '2015-06-25T16:45:45', 'ProductCategoryData')
+/* -> 2 Insert operations completed in 00:00:00.0020002 taking an average of 00:00:00.0010001 */
+INSERT INTO [dbo].[VersionInfo] ([Version], [AppliedOn], [Description]) VALUES (201506251851, '2015-06-25T17:23:54', 'ProductCategoryData')
 /* Committing Transaction */
 /* 201506251851: ProductCategoryData migrated */
 

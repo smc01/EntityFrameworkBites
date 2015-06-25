@@ -22,6 +22,8 @@ namespace EntityFrameworkBites.DataModel
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Entity<Product>().HasKey(s=>s.Id).Property(p=>p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<ProductCategory>().HasKey(s => s.Id);
             base.OnModelCreating(modelBuilder);
         }
     }

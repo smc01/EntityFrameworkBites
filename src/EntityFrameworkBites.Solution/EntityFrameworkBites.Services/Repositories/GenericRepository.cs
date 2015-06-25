@@ -33,7 +33,7 @@ namespace EntityFrameworkBites.Services.Repositories
 
         public System.Linq.IQueryable<T> All()
         {
-            throw new NotImplementedException();
+            return _dbSet.Where(p=>1==1);
         }
 
         public T Single(System.Linq.Expressions.Expression<Func<T, bool>> predicate)

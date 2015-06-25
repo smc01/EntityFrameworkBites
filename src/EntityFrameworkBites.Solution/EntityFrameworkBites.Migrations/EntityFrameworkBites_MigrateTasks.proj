@@ -2,6 +2,8 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="MigrateUp">
   <PropertyGroup>
     <ConnectionString>Server=.\SQL2012;Database=EfBitesDb;User Id=sa;Password=1234%asd</ConnectionString>
+    <ConnectionStringTest>Server=.\SQL2012;Database=EfBitesDbTest;User Id=sa;Password=1234%asd</ConnectionStringTest>
+
   </PropertyGroup>
   <UsingTask TaskName="FluentMigrator.MSBuild.Migrate" AssemblyFile="..\packages\FluentMigrator.1.5.1.0\tools\FluentMigrator.MSBuild.dll" />
 
@@ -23,6 +25,10 @@
     <Migrate Database="SqlServer2012" Connection="$(ConnectionString)" Target="bin/Debug/EntityFrameworkBites.Migrations.dll" Task="migrate" Verbose="True" Output="True" />
   </Target>
 
+  <Target Name="MigrateTest">
+    <Message Text="Starting FluentMigrator Migration (Test)"  />
+    <Migrate Database="SqlServer2012" Connection="$(ConnectionStringTest)" Target="bin/Debug/EntityFrameworkBites.Migrations.dll" Task="migrate" Verbose="True" Output="True" />
+  </Target>
 
   <Target Name="MigrateUp">
     <CallTarget Targets="BuildProj" />
@@ -39,6 +45,11 @@
     <CallTarget Targets="BuildProj"></CallTarget>
     <Message Text="Starting FluentMigrator Migration Rollback one" />
     <Migrate  Database="SqlServer2012" Connection="$(ConnectionString)" Target="bin/Debug/EntityFrameworkBites.Migrations.dll" Task="rollback" Verbose="True" Output="True" />
+  </Target>
+
+  <Target Name="TestEnv">
+    <CallTarget Targets="BuildProj" />
+    <CallTarget Targets="MigrateTest" />
   </Target>
 
 </Project>
