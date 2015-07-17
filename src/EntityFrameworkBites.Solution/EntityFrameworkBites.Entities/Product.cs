@@ -8,5 +8,7 @@ namespace EntityFrameworkBites.Entities
     {
         [Key]
         public string Name { get; set; }
+        public int ProductCategoryId { get; set; }
+        public virtual ProductCategory ProductCategory { get; set; }
     }
 }

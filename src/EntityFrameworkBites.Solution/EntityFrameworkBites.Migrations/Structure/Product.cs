@@ -34,8 +34,8 @@ namespace EntityFrameworkBites.Migrations.Structure
         {
             Alter.Table("Product")
                 .AddColumn("ProductCategoryId")
-                .AsInt16()
-                .ForeignKey("FK_Product_ProductCategory", "ProductCategory");
+                .AsInt32()
+                .ForeignKey("FK_Product_ProductCategory","ProductCategory","Id");
         }
     }
 }

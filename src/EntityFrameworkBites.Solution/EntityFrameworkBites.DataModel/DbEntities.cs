@@ -16,7 +16,7 @@ namespace EntityFrameworkBites.DataModel
 
             
         }
-        public IDbSet<Entities.Product> ProductSet { get; set; }
+        public virtual DbSet<Product> ProductSet { get; set; }
         public virtual DbSet<ProductCategory> ProductCategorieSet { get; set; } 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

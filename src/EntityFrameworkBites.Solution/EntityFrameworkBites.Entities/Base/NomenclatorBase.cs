@@ -1,6 +1,6 @@
 ﻿namespace EntityFrameworkBites.Entities.Base
 {
-    public abstract class NomenclatorBase: EntityBase<int>
+    public abstract class NomenclatorBase: IntEntityBase
     {
         public string Name { get; set; }
     }

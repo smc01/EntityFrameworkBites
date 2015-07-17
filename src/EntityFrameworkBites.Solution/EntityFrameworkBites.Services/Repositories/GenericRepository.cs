@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using EntityFrameworkBites.DataModel;
 using EntityFrameworkBites.Entities.Base;
@@ -19,14 +20,14 @@ namespace EntityFrameworkBites.Services.Repositories
         }
         public void InsertOrUpdate(T entity)
         {
-            if (entity.Id == default(int)) // New entity
+            DbEntityEntry dbEntityEntry = _dbEntities.Entry(entity);
+            if (dbEntityEntry.State != EntityState.Detached)
             {
-                _dbEntities.Entry(entity).State = EntityState.Added;
+                dbEntityEntry.State = EntityState.Added;
             }
-            else        // Existing entity
+            else
             {
                 _dbSet.Add(entity);
-                _dbEntities.Entry(entity).State = EntityState.Modified;
             }
         }
 

@@ -5,8 +5,8 @@ namespace EntityFrameworkBites.DataModel.Base
 {
     public interface IDbEntities
     {
-        IDbSet<Product> ProductSet { get; set; }
-
+        DbSet<Product> ProductSet { get; set; }
+        DbSet<ProductCategory> ProductCategorieSet { get; set; } 
         int SaveChanges();
     }
 }

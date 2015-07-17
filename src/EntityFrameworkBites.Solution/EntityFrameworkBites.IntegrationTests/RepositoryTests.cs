@@ -18,11 +18,14 @@ namespace EntityFrameworkBites.IntegrationTests
         private readonly SqlConnection _sqlConnection;
         private readonly Checkpoint _checkPoint;
 
+        private readonly IFixture _fixture;
+
         public RepositoryTests()
         {
             var connString = ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString; ;
             _sqlConnection = new SqlConnection(connString);
-
+            
+            _fixture = new Fixture();
 
             _checkPoint = new Checkpoint
             {
@@ -50,7 +53,16 @@ namespace EntityFrameworkBites.IntegrationTests
             using (var dbEntities = new DbEntities())
             {
                 var repository = new GenericRepository<Product>(dbEntities);
-                repository.InsertOrUpdate(new Product() { Name = "Vasile" });
+                var repositoryProductCategory = new GenericRepository<ProductCategory>(dbEntities);
+
+                var productCategory = repositoryProductCategory.Single(p => p.Id == 1);
+
+                var product = _fixture.Create<Product>();
+                product.ProductCategory = productCategory;
+                product.ProductCategoryId = productCategory.Id;
+
+
+                repository.InsertOrUpdate(product);
 
                 dbEntities.SaveChanges();
 
@@ -62,23 +74,25 @@ namespace EntityFrameworkBites.IntegrationTests
         }
 
         [TestMethod]
-        public void SingleTest()
+        public void SingleShouldReturnOnlyOneRecord()
         {
             using (var dbEntities = new DbEntities())
             {
                 var fixture = new Fixture();
-
-                var entities = fixture.CreateMany<Product>(4);
+                var item = fixture.Create<Product>();
 
                 var repository = new GenericRepository<Product>(dbEntities);
-                
-                entities.ToList().ForEach(p=>repository.InsertOrUpdate(new Product()
-                {
-                    Name = p.Name
-                }));
+                var repositoryCategory = new GenericRepository<ProductCategory>(dbEntities);
+
+                var category = repositoryCategory.Single(p => p.Id == 1);
+                item.ProductCategory = category;
+                item.ProductCategoryId = category.Id;
+
+                repository.InsertOrUpdate(item);
+
                 dbEntities.SaveChanges();
-                var counter = repository.All().Count();
-                Assert.AreEqual(counter,entities.Count());
+                var counter = repository.Single(p => p.Id == item.Id);
+                Assert.IsNotNull(counter);
             }
 
         }
