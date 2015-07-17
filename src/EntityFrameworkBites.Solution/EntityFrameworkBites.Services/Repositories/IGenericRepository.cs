@@ -11,5 +11,7 @@ namespace EntityFrameworkBites.Services.Repositories
         IQueryable<T> All();
         T Single(Expression<Func<T, bool>> predicate);
         IQueryable<T> Find(Expression<Func<T, bool>> predicate);
+        void Delete(T entity);
+        void Edit(T entity);
     }
 }

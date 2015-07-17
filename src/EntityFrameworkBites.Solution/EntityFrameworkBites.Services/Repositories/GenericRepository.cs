@@ -9,10 +9,9 @@ namespace EntityFrameworkBites.Services.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T>
         where T : IntEntityBase
- 
     {
         private readonly DbEntities _dbEntities;
-        private readonly DbSet<T> _dbSet; 
+        private readonly DbSet<T> _dbSet;
         public GenericRepository(DbEntities dbContext)
         {
             _dbEntities = dbContext;
@@ -31,10 +30,9 @@ namespace EntityFrameworkBites.Services.Repositories
             }
         }
 
-
         public System.Linq.IQueryable<T> All()
         {
-            return _dbSet.Where(p=>1==1);
+            return _dbSet.Where(p => 1 == 1);
         }
 
         public T Single(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
@@ -46,5 +44,30 @@ namespace EntityFrameworkBites.Services.Repositories
         {
             return _dbSet.Where(predicate);
         }
+
+        public virtual void Delete(T entity)
+        {
+            DbEntityEntry dbEntityEntry = _dbEntities.Entry(entity);
+            if (dbEntityEntry.State != EntityState.Deleted)
+            {
+                dbEntityEntry.State = EntityState.Deleted;
+            }
+            else
+            {
+                _dbSet.Attach(entity);
+                _dbSet.Remove(entity);
+            }
+        }
+
+        public virtual void Edit(T entity)
+        {
+            DbEntityEntry dbEntityEntry = _dbEntities.Entry(entity);
+            if (dbEntityEntry.State == EntityState.Detached)
+            {
+                _dbSet.Attach(entity);
+            }
+            dbEntityEntry.State = EntityState.Modified;
+        }
+
     }
 }
