@@ -29,6 +29,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{30EDC6F5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkBites.IntegrationTests", "EntityFrameworkBites.IntegrationTests\EntityFrameworkBites.IntegrationTests.csproj", "{051375C2-B3AE-400E-884E-CD5434B890F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkBites.WebApp", "EntityFrameworkBites.WebApp\EntityFrameworkBites.WebApp.csproj", "{97E9CE5B-BE52-417E-B632-0ECF7F5EBF47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkBites.ControllerTests", "EntityFrameworkBites.ControllerTests\EntityFrameworkBites.ControllerTests.csproj", "{E85BE5CB-ECF1-4858-96F4-CFEA421D60A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,11 +63,20 @@ Global
 		{051375C2-B3AE-400E-884E-CD5434B890F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{051375C2-B3AE-400E-884E-CD5434B890F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{051375C2-B3AE-400E-884E-CD5434B890F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E9CE5B-BE52-417E-B632-0ECF7F5EBF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E9CE5B-BE52-417E-B632-0ECF7F5EBF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E9CE5B-BE52-417E-B632-0ECF7F5EBF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E9CE5B-BE52-417E-B632-0ECF7F5EBF47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E85BE5CB-ECF1-4858-96F4-CFEA421D60A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E85BE5CB-ECF1-4858-96F4-CFEA421D60A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E85BE5CB-ECF1-4858-96F4-CFEA421D60A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E85BE5CB-ECF1-4858-96F4-CFEA421D60A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{051375C2-B3AE-400E-884E-CD5434B890F2} = {30EDC6F5-AF80-498B-B9F9-312282B973EB}
+		{E85BE5CB-ECF1-4858-96F4-CFEA421D60A5} = {30EDC6F5-AF80-498B-B9F9-312282B973EB}
 	EndGlobalSection
 EndGlobal
