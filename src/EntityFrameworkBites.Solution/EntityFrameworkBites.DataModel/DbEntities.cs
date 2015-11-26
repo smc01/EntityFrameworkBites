@@ -19,12 +19,24 @@ namespace EntityFrameworkBites.DataModel
         public virtual DbSet<Product> ProductSet { get; set; }
         public virtual DbSet<ProductCategory> ProductCategorieSet { get; set; } 
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Entity<Product>().HasKey(s=>s.Id).Property(p=>p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<ProductCategory>().HasKey(s => s.Id);
             base.OnModelCreating(modelBuilder);
+        }
+
+
+        public DbSet<T> GetDbSet<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
+        public System.Data.Entity.Infrastructure.DbEntityEntry<T> DbEntityEntry<T>(T entity) where T : class
+        {
+            return base.Entry(entity);
         }
     }
 }
